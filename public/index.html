@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>My Resume</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<style type="text/css">
+	#skill{
+		display: inline;
+		text-align: center;
+		vertical-align:middle;
+	}
+	div.a{
+		text-align: center;
+		background-color: #82EEA8;
+		font-style: bold;
+	}
+	h3{
+		color: #EA9170;
+	}
+	h1{
+		color: #E13F17;
+	}
+</style>
+<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="controllers/controller.js"></script>
+</head>
+<body>
+
+<div class="container" ng-controller="AppCtrl">
+	<div class="page-header"> 
+		<h1 align="center"> Dibakar Barua </h1>
+		<h4 align="center">Student at California State University of Los Angeles</h4>
+		<p align="center"> <b>Email:</b> dbarua@calstatela.edu</p>
+	</div>
+	<div class="page-header">
+		<h3 align="center"><ins>My Education</ins></h3>
+	</div>
+
+	<table class="table" >
+		<tr class="info" align="center">
+			<th>School</th><th>Degree</th><th>Year attended</th>
+		</tr>
+		<tbody>
+			<tr ng-repeat="data in mydb">
+				<td>{{data.school}}</td>
+				<td>{{data.degree}}</td>
+				<td>{{data.last_year}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="page-header">
+		<h3 align="center"><ins>My Skills</ins></h3>
+	</div>
+
+	<div class="a">
+		<p id="skill" ng-repeat="skill in mydb">{{skill.skill}} &nbsp</p>
+	</div>
+
+	<div class="page-header">
+		<h3 align="center"><ins>My Projects</ins></h3>
+	</div>
+	<table class="table">
+		<tr class="info">
+			<th>Projects</th><th>Description</th>
+		</tr>
+		<tr ng-repeat="pr in mypr">
+			<td>{{pr.projects}}</td>
+			<td>{{pr.description}}</td>
+		</tr>
+		
+	</table>
+
+</div>
+
+</body>
+</html>
